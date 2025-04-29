@@ -49,13 +49,12 @@ public class PizzaController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Pizza> deletePizza(@PathVariable Long id) {
-        Optional<Pizza> pizzaToDelete = pizzaRepository.findById(id);
-        if (pizzaToDelete.isPresent()) {
+public ResponseEntity<Void> deletePizza(@PathVariable Long id) {
+    if (pizzaRepository.existsById(id)) {
         pizzaRepository.deleteById(id);
-            return ResponseEntity.ok(pizzaToDelete.get());
-         } else {
-         return ResponseEntity.notFound().build();
-     }
+        return ResponseEntity.noContent().build();
+    } else {
+        return ResponseEntity.notFound().build();
     }
+}
 }
