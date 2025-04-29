@@ -13,7 +13,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/login")
 public class AutenticacaoController {
-    //Teste2 Github comit
+    //Teste2 Github comit 2
     private final AuthenticationManager authenticationManager;
 
     public AutenticacaoController(AuthenticationManager authenticationManager) {
